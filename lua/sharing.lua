@@ -1,12 +1,14 @@
 local M = {}
 
+local default_opts = {
+	features = {
+		'relnum',
+		-- 'scrolling',
+	},
+}
+
 function M.setup(opts)
-	opts = opts or {
-		features = {
-			'relnum',
-			-- 'scrolling',
-		},
-	}
+	opts = vim.tbl_deep_extend('force', opts or {}, default_opts)
 
 	vim.api.nvim_create_user_command('Sharing', function(info)
 		local args = vim.split(info.args, ' ')
@@ -25,7 +27,7 @@ function M.setup(opts)
 				require('sharing.' .. feature).disable()
 			end
 		end
-	end, {})
+	end, { nargs = 1 })
 end
 
 return M
