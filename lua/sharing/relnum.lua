@@ -2,20 +2,15 @@ local M = {}
 
 -- toggles relative line numbers
 function M.toggle()
-	-- if numbers enabled &
-	vim.opt.relativenumber = not vim.opt.relativenumber
-
-	if not vim.opt.relativenumber then
-		vim.cmd('redraw')
-	end
+	vim.cmd('set relativenumber!')
 end
 
 function M.enable()
-	vim.opt.relativenumber = true
+	vim.cmd('set relativenumber')
 end
 
 function M.disable()
-	vim.opt.relativenumber = false
+	vim.cmd('set norelativenumber')
 	vim.cmd('redraw')
 end
 

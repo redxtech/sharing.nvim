@@ -11,7 +11,7 @@ install using your favorite package manager:
 {
   'redxtech/sharing.nvim',
   keys = {
-    { 'n', '<leader>ts', ':Sharing toggle<cr>' },
+    { 'n', '<leader>ts', '<cmd>Sharing toggle<cr>', desc = 'Toggle sharing mode' },
   },
   config = true,
 }
